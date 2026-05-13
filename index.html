@@ -1,0 +1,1225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JCICREED Delivery Services</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --navy: #1b2d5e;
+        --navy-dk: #111d3e;
+        --blue: #2e4ea3;
+        --orange: #d4651a;
+        --white: #ffffff;
+        --gray: #f4f6fa;
+        --text: #222;
+        --muted: #666;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text);
+        background: var(--white);
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: var(--navy-dk);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5%;
+        height: 68px;
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        text-decoration: none;
+      }
+
+      .nav-logo-box {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        font-weight: 800;
+        font-size: 13px;
+        color: var(--white);
+        letter-spacing: 1px;
+      }
+
+      .nav-name {
+        color: var(--white);
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+      }
+
+      .nav-name span {
+        display: block;
+        font-weight: 300;
+        font-size: 11px;
+        letter-spacing: 2px;
+        color: #aabbdd;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
+      .nav-links a {
+        color: #c8d6f0;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--orange);
+      }
+
+      .nav-cta {
+        background: var(--orange);
+        color: var(--white) !important;
+        padding: 9px 20px;
+        border-radius: 4px;
+        font-weight: 600 !important;
+        transition: background 0.2s !important;
+      }
+      .nav-cta:hover {
+        background: #b8531500 !important;
+        background: #b85315 !important;
+        color: var(--white) !important;
+      }
+
+      /* ── HERO ── */
+      #home {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          var(--navy-dk) 0%,
+          var(--navy) 50%,
+          var(--blue) 100%
+        );
+        display: flex;
+        align-items: center;
+        padding: 100px 5% 60px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #home::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .hero-content {
+        position: relative;
+        max-width: 680px;
+      }
+
+      .hero-tag {
+        display: inline-block;
+        background: var(--orange);
+        color: var(--white);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        padding: 5px 14px;
+        border-radius: 2px;
+        margin-bottom: 24px;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(36px, 6vw, 68px);
+        font-weight: 800;
+        color: var(--white);
+        line-height: 1.1;
+        margin-bottom: 20px;
+      }
+
+      .hero-content h1 span {
+        color: var(--orange);
+      }
+
+      .hero-content p {
+        font-size: 17px;
+        color: #b0c4e8;
+        line-height: 1.7;
+        margin-bottom: 36px;
+        max-width: 540px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        background: var(--orange);
+        color: var(--white);
+        padding: 14px 32px;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.1s;
+      }
+      .btn-primary:hover {
+        background: #b85315;
+        transform: translateY(-1px);
+      }
+
+      .btn-outline {
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        color: var(--white);
+        padding: 14px 32px;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .btn-outline:hover {
+        border-color: var(--white);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 40px;
+        margin-top: 56px;
+        padding-top: 36px;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .stat-item {
+        color: var(--white);
+      }
+      .stat-item strong {
+        display: block;
+        font-size: 36px;
+        font-weight: 800;
+        color: var(--orange);
+        line-height: 1;
+      }
+      .stat-item span {
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: #aabbdd;
+        margin-top: 4px;
+        display: block;
+      }
+
+      /* ── SECTIONS common ── */
+      section {
+        padding: 90px 5%;
+      }
+
+      .section-tag {
+        display: inline-block;
+        width: 40px;
+        height: 4px;
+        background: var(--orange);
+        margin-bottom: 16px;
+        border-radius: 2px;
+      }
+
+      .section-title {
+        font-size: clamp(26px, 4vw, 40px);
+        font-weight: 800;
+        color: var(--navy);
+        margin-bottom: 12px;
+      }
+
+      .section-sub {
+        font-size: 16px;
+        color: var(--muted);
+        line-height: 1.7;
+        max-width: 600px;
+      }
+
+      /* ── ABOUT ── */
+      #about {
+        background: var(--white);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: center;
+        margin-top: 52px;
+      }
+
+      .about-text p {
+        font-size: 15px;
+        line-height: 1.9;
+        color: #444;
+        margin-bottom: 16px;
+      }
+
+      .about-text .tagline {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--navy);
+        border-left: 4px solid var(--orange);
+        padding-left: 16px;
+        margin-top: 24px;
+        line-height: 1.5;
+      }
+
+      .about-card {
+        background: var(--navy);
+        border-radius: 8px;
+        padding: 48px 40px;
+        color: var(--white);
+      }
+
+      .about-card h3 {
+        font-size: 13px;
+        letter-spacing: 2px;
+        color: var(--orange);
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .info-item {
+        display: flex;
+        gap: 14px;
+        margin-bottom: 20px;
+        align-items: flex-start;
+      }
+
+      .info-icon {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+      }
+
+      .info-item p {
+        font-size: 14px;
+        color: #c8d6f0;
+        line-height: 1.5;
+      }
+      .info-item strong {
+        color: var(--white);
+        display: block;
+        font-size: 13px;
+        margin-bottom: 2px;
+      }
+
+      /* ── MISSION / VISION ── */
+      #mission-vision {
+        background: var(--gray);
+      }
+
+      .mv-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        margin-top: 52px;
+      }
+
+      .mv-card {
+        background: var(--white);
+        border-radius: 8px;
+        padding: 44px 40px;
+        border-top: 4px solid var(--orange);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+      }
+
+      .mv-card h3 {
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--navy);
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+      }
+
+      .mv-card p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #555;
+      }
+
+      /* ── VALUES ── */
+      #values {
+        background: var(--white);
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin-top: 52px;
+      }
+
+      .value-card {
+        padding: 32px 28px;
+        border-radius: 8px;
+        border: 1px solid #e8edf5;
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+
+      .value-card:hover {
+        box-shadow: 0 8px 32px rgba(27, 45, 94, 0.1);
+        transform: translateY(-3px);
+      }
+
+      .value-letter {
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--orange);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .value-card h4 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 10px;
+      }
+
+      .value-card p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.7;
+      }
+
+      /* ── WHY CHOOSE US ── */
+      #why {
+        background: var(--navy);
+        padding: 90px 5%;
+      }
+
+      #why .section-title {
+        color: var(--white);
+      }
+      #why .section-tag {
+        background: var(--orange);
+      }
+
+      .why-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-top: 52px;
+      }
+
+      .why-item {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 8px;
+        padding: 28px 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .why-num {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        background: var(--orange);
+        color: var(--white);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 16px;
+      }
+
+      .why-item h4 {
+        color: var(--white);
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .why-item p {
+        color: #b0c4e8;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* ── FLEET ── */
+      #fleet {
+        background: var(--gray);
+      }
+
+      .fleet-intro {
+        margin-top: 52px;
+        margin-bottom: 40px;
+      }
+
+      .fleet-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .fleet-card {
+        background: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+
+      .fleet-img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        display: block;
+      }
+
+      .fleet-placeholder {
+        width: 100%;
+        aspect-ratio: 4/3;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+      }
+
+      .fleet-card p {
+        padding: 16px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--navy);
+        letter-spacing: 0.5px;
+      }
+
+      /* ── CONTACT ── */
+      #contact {
+        background: var(--white);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: start;
+        margin-top: 52px;
+      }
+
+      .contact-info h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 32px;
+      }
+
+      .contact-detail {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        margin-bottom: 28px;
+      }
+
+      .contact-icon {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        background: var(--navy);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+      }
+
+      .contact-detail strong {
+        display: block;
+        font-size: 13px;
+        color: var(--muted);
+        letter-spacing: 1px;
+        margin-bottom: 4px;
+      }
+      .contact-detail p {
+        font-size: 15px;
+        color: var(--navy);
+        font-weight: 600;
+        line-height: 1.5;
+      }
+      .contact-detail a {
+        color: var(--navy);
+        text-decoration: none;
+      }
+      .contact-detail a:hover {
+        color: var(--orange);
+      }
+
+      .contact-form {
+        background: var(--gray);
+        border-radius: 8px;
+        padding: 40px;
+      }
+      .contact-form h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 24px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 8px;
+      }
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #dce4f0;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 14px;
+        color: var(--text);
+        background: var(--white);
+        transition: border-color 0.2s;
+        outline: none;
+      }
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus {
+        border-color: var(--blue);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .btn-submit {
+        width: 100%;
+        background: var(--navy);
+        color: var(--white);
+        padding: 14px;
+        border: none;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .btn-submit:hover {
+        background: var(--orange);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--navy-dk);
+        color: #9ab0d4;
+        padding: 40px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .footer-logo {
+        width: 36px;
+        height: 36px;
+        background: var(--blue);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 11px;
+        color: var(--white);
+      }
+
+      .footer-name {
+        color: var(--white);
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .footer-name span {
+        display: block;
+        font-size: 10px;
+        font-weight: 400;
+        color: #7a9ac0;
+        letter-spacing: 2px;
+      }
+
+      .footer-copy {
+        font-size: 12px;
+      }
+
+      .footer-est {
+        font-size: 11px;
+        letter-spacing: 2px;
+        color: #5a7a9c;
+        text-transform: uppercase;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        .about-grid,
+        .mv-grid,
+        .why-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .fleet-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .fleet-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .hero-stats {
+          gap: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── NAV ── -->
+    <nav>
+      <a href="#home" class="nav-brand">
+        <div class="nav-logo-box">JDS</div>
+        <div class="nav-name">
+          JCICREED
+          <span>DELIVERY SERVICES</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#mission-vision">Mission</a></li>
+        <li><a href="#values">Values</a></li>
+        <li><a href="#fleet">Fleet</a></li>
+        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section id="home">
+      <div class="hero-content">
+        <div class="hero-tag">ESTABLISHED 2018 &bull; MUNTINLUPA CITY</div>
+        <h1>
+          Let Us Take the<br /><span>Weight Off</span><br />Your Shoulders.
+        </h1>
+        <p>
+          JCICREED Delivery Services is a premiere service-oriented transport
+          company with a fleet of 30+ trucks — delivering your cargo with
+          efficiency, reliability, and care.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Get a Quote</a>
+          <a href="#about" class="btn-outline">Learn More</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <strong>30+</strong>
+            <span>TRUCKS IN FLEET</span>
+          </div>
+          <div class="stat-item">
+            <strong>8+</strong>
+            <span>YEARS OF SERVICE</span>
+          </div>
+          <div class="stat-item">
+            <strong>98%</strong>
+            <span>EFFICIENCY RATING</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section id="about">
+      <div class="section-tag"></div>
+      <h2 class="section-title">Company Profile</h2>
+      <p class="section-sub">
+        Your mission is our passion — we are committed to delivering value.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            JCICREED DELIVERY SERVICE was established 8 years ago as a premiere
+            service-oriented transport company. We are a team of
+            service-oriented, dynamic, committed and passionate in taking the
+            load to our clients in the most efficient service.
+          </p>
+          <p>
+            As we expanded our horizon over the years from our humble beginning
+            of 1 truck, we have grown our company to a fleet of 30+ trucks to
+            fill the need for outstanding service, reliability and competitive
+            prices to freight forwarders in the marketplace.
+          </p>
+          <p>
+            Our existence in this industry is to remain loyal to our clients
+            with the highest commitment in providing value added services,
+            personalized and innovative ways that are best suited for the needs
+            of our partners.
+          </p>
+          <div class="tagline">"Your mission, Our passion."</div>
+        </div>
+
+        <div class="about-card">
+          <h3>CONTACT INFORMATION</h3>
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div>
+              <strong>Address</strong>
+              <p>
+                2D Tower B Escalades South<br />Metro Meralco Road, Sucat<br />Muntinlupa
+                City
+              </p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div>
+              <strong>Phone</strong>
+              <p>(02) 8252-5996</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div>
+              <strong>Email</strong>
+              <p>jcreedoit@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📅</div>
+            <div>
+              <strong>Established</strong>
+              <p>2018 — 8 Years in Business</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MISSION / VISION ── -->
+    <section id="mission-vision">
+      <div class="section-tag"></div>
+      <h2 class="section-title">Mission &amp; Vision</h2>
+      <p class="section-sub">
+        The principles that drive every delivery we make.
+      </p>
+
+      <div class="mv-grid">
+        <div class="mv-card">
+          <h3>MISSION</h3>
+          <p>
+            To provide the best logistic solutions that you can rely on by
+            handling everything with a service-first approach — fast, efficient,
+            and hassle-free delivery for every client, every time.
+          </p>
+        </div>
+        <div class="mv-card">
+          <h3>VISION</h3>
+          <p>
+            Going beyond by delivering your company's expectations. We strive to
+            be the most trusted and innovative transport partner in the
+            Philippines, setting the standard for reliability and service
+            excellence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── VALUES ── -->
+    <section id="values">
+      <div class="section-tag"></div>
+      <h2 class="section-title">Our Values</h2>
+      <p class="section-sub">
+        <strong>S.E.R.V.I.C.E.</strong> — The foundation of everything we do for
+        trucking services.
+      </p>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-letter">S</div>
+          <h4>Safety</h4>
+          <p>
+            Ensuring secure transport for goods, drivers, and the public at
+            every step of the journey.
+          </p>
+        </div>
+        <div class="value-card">
+          <div class="value-letter">E</div>
+          <h4>Efficiency</h4>
+          <p>
+            Delivering freight on time with optimized routes and fuel usage for
+            maximum performance.
+          </p>
+        </div>
+        <div class="value-card">
+          <div class="value-letter">R</div>
+          <h4>Reliability</h4>
+          <p>
+            Consistently meeting delivery schedules and customer expectations
+            without compromise.
+          </p>
+        </div>
+        <div class="value-card">
+          <div class="value-letter">V</div>
+          <h4>Value</h4>
+          <p>
+            Providing cost-effective solutions without compromising the quality
+            our clients deserve.
+          </p>
+        </div>
+        <div class="value-card">
+          <div class="value-letter">I</div>
+          <h4>Integrity</h4>
+          <p>
+            Operating with honesty, transparency, and ethical practices in all
+            our business dealings.
+          </p>
+        </div>
+        <div class="value-card">
+          <div class="value-letter">C</div>
+          <h4>Communication</h4>
+          <p>
+            Keeping clients informed with real-time updates and responsive,
+            attentive support.
+          </p>
+        </div>
+        <div class="value-card">
+          <div class="value-letter">E</div>
+          <h4>Excellence</h4>
+          <p>
+            Striving for top-tier performance in service, logistics, and every
+            operation we undertake.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHY CHOOSE US ── -->
+    <section id="why">
+      <div class="section-tag"></div>
+      <h2 class="section-title">Why Choose Us?</h2>
+
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-num">1</div>
+          <div>
+            <h4>Responsible Work Environment</h4>
+            <p>
+              Well-maintained vehicles, healthy and trained drivers, and a
+              coordinating team ready to meet your transport needs.
+            </p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">2</div>
+          <div>
+            <h4>Nationwide Base Rate</h4>
+            <p>
+              We assist your company in cost savings with nation-wide base rate
+              trucking service tailored to your needs.
+            </p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">3</div>
+          <div>
+            <h4>90–98% Efficiency Rating</h4>
+            <p>
+              Our trucking system consistently rates 90–98% in terms of
+              efficiency — a benchmark we are proud to maintain.
+            </p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">4</div>
+          <div>
+            <h4>Experienced Team</h4>
+            <p>
+              Our team has a minimum of 5 years of supply chain experience.
+              Training, control, and evaluation are provided to every member.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FLEET ── -->
+    <section id="fleet">
+      <div class="section-tag"></div>
+      <h2 class="section-title">Our Units</h2>
+      <p class="section-sub">
+        A growing fleet of 30+ well-maintained trucks ready to serve your
+        logistics needs.
+      </p>
+
+      <div class="fleet-grid" style="margin-top: 48px">
+        <div class="fleet-card">
+          <div class="fleet-placeholder">🚛</div>
+          <p>Closed Van Units</p>
+        </div>
+        <div class="fleet-card">
+          <div class="fleet-placeholder">🚚</div>
+          <p>Refrigerated Trucks</p>
+        </div>
+        <div class="fleet-card">
+          <div class="fleet-placeholder">🚐</div>
+          <p>Light Delivery Trucks</p>
+        </div>
+        <div class="fleet-card">
+          <div class="fleet-placeholder">🏗️</div>
+          <p>Heavy Duty Units</p>
+        </div>
+      </div>
+
+      <p
+        style="
+          margin-top: 32px;
+          font-size: 14px;
+          color: var(--muted);
+          text-align: center;
+        "
+      >
+        All units are regularly maintained and operated by trained, experienced
+        drivers.
+      </p>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section id="contact">
+      <div class="section-tag"></div>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-sub">
+        Ready to move your cargo? Contact us for a quote or any inquiries.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+
+          <div class="contact-detail">
+            <div class="contact-icon">📍</div>
+            <div>
+              <strong>ADDRESS</strong>
+              <p>
+                2D Tower B Escalades South Metro Meralco Road, Sucat, Muntinlupa
+                City
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-icon">📞</div>
+            <div>
+              <strong>PHONE</strong>
+              <p><a href="tel:028252-5996">(02) 8252-5996</a></p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <strong>EMAIL</strong>
+              <p>
+                <a href="mailto:jcreedoit@gmail.com">jcreedoit@gmail.com</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <strong>BUSINESS HOURS</strong>
+              <p>Monday – Saturday<br />8:00 AM – 6:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>Send a Message</h3>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Juan dela Cruz"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" placeholder="Your Company" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="you@company.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+63 9XX XXX XXXX" />
+            </div>
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service">
+                <option value="">Select a service...</option>
+                <option>Closed Van Delivery</option>
+                <option>Refrigerated Transport</option>
+                <option>Freight Forwarding</option>
+                <option>Nationwide Trucking</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                placeholder="Tell us about your delivery needs..."
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-brand">
+        <div class="footer-logo">JDS</div>
+        <div class="footer-name">
+          JCICREED DELIVERY SERVICES
+          <span>ESTABLISHED 2018</span>
+        </div>
+      </div>
+      <div class="footer-copy">
+        &copy; 2024 JCICREED Delivery Services. All rights reserved.
+      </div>
+      <div class="footer-est">Your Mission, Our Passion</div>
+    </footer>
+
+    <script>
+      function handleSubmit(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector(".btn-submit");
+        btn.textContent = "Message Sent!";
+        btn.style.background = "#2e7d32";
+        setTimeout(() => {
+          btn.textContent = "Send Inquiry";
+          btn.style.background = "";
+          e.target.reset();
+        }, 3000);
+      }
+
+      // Smooth active nav highlight
+      const sections = document.querySelectorAll("section[id], #home");
+      const navLinks = document.querySelectorAll(".nav-links a");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((a) => (a.style.color = ""));
+              const active = document.querySelector(
+                `.nav-links a[href="#${entry.target.id}"]`,
+              );
+              if (active && !active.classList.contains("nav-cta")) {
+                active.style.color = "#d4651a";
+              }
+            }
+          });
+        },
+        { threshold: 0.4 },
+      );
+
+      sections.forEach((s) => observer.observe(s));
+    </script>
+  </body>
+</html>
