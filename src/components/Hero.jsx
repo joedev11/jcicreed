@@ -143,20 +143,20 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Prev arrow */}
+      {/* Prev arrow — hidden on mobile */}
       <button
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 border border-white/20 text-white text-lg flex items-center justify-center hover:bg-jds-orange hover:border-jds-orange transition-colors backdrop-blur-sm"
+        className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 border border-white/20 text-white text-lg items-center justify-center hover:bg-jds-orange hover:border-jds-orange transition-colors backdrop-blur-sm"
       >
         &#8592;
       </button>
 
-      {/* Next arrow */}
+      {/* Next arrow — hidden on mobile */}
       <button
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 border border-white/20 text-white text-lg flex items-center justify-center hover:bg-jds-orange hover:border-jds-orange transition-colors backdrop-blur-sm"
+        className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 border border-white/20 text-white text-lg items-center justify-center hover:bg-jds-orange hover:border-jds-orange transition-colors backdrop-blur-sm"
       >
         &#8594;
       </button>
