@@ -1,40 +1,46 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import { stats } from '@/data/content';
+import { useState, useEffect, useCallback } from "react";
+import { stats } from "@/data/content";
 
 const slides = [
   {
-    image: '/images/hero-trucks.jpg',
-    overlay: 'rgba(17, 29, 62, 0.72)',
-    headline: ['Let Us Take the', 'Weight Off', 'Your Shoulders.'],
+    image: "/images/hero-trucks.jpg",
+    overlay: "rgba(17, 29, 62, 0.72)",
+    headline: ["Let Us Take the", "Weight Off", "Your Shoulders."],
     accent: 1,
-    sub: 'JCICREED Delivery Services is a premiere service-oriented transport company with a fleet of 30+ trucks.',
+    sub: "JCICREED Delivery Services is a premiere service-oriented transport company with a fleet of 30+ trucks.",
   },
   {
-    image: '/images/hero-trucks.jpg',
-    overlay: 'rgba(15, 28, 56, 0.80)',
-    headline: ['Fast. Efficient.', 'Hassle-Free', 'Delivery.'],
+    image: "/images/hero-trucks.jpg",
+    overlay: "rgba(15, 28, 56, 0.80)",
+    headline: ["Fast. Efficient.", "Hassle-Free", "Delivery."],
     accent: 0,
-    sub: 'From our humble beginning of 1 truck to 30+ units nationwide — we deliver on time, every time.',
+    sub: "From our humble beginning of 1 truck to 30+ units nationwide — we deliver on time, every time.",
   },
   {
-    image: '/images/hero-trucks.jpg',
-    overlay: 'rgba(17, 29, 62, 0.75)',
-    headline: ['Your Mission', 'Is Our Passion.', ''],
+    image: "/images/hero-trucks.jpg",
+    overlay: "rgba(17, 29, 62, 0.75)",
+    headline: ["Your Mission", "Is Our Passion.", ""],
     accent: 1,
-    sub: 'Service-first, committed, and passionate in taking your load to its destination in the most efficient way.',
+    sub: "Service-first, committed, and passionate in taking your load to its destination in the most efficient way.",
   },
 ];
 
-const INTERVAL = 5000;
+const INTERVAL = 10000;
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  const next = useCallback(() => setCurrent((c) => (c + 1) % slides.length), []);
-  const prev = useCallback(() => setCurrent((c) => (c - 1 + slides.length) % slides.length), []);
+  const next = useCallback(
+    () => setCurrent((c) => (c + 1) % slides.length),
+    [],
+  );
+  const prev = useCallback(
+    () => setCurrent((c) => (c - 1 + slides.length) % slides.length),
+    [],
+  );
 
   useEffect(() => {
     if (paused) return;
@@ -63,7 +69,10 @@ export default function Hero() {
             style={{ backgroundImage: `url(${slide.image})` }}
           />
           {/* Dark overlay for readability */}
-          <div className="absolute inset-0" style={{ background: slide.overlay }} />
+          <div
+            className="absolute inset-0"
+            style={{ background: slide.overlay }}
+          />
         </div>
       ))}
 
@@ -81,12 +90,15 @@ export default function Hero() {
               className="absolute top-0 left-0 text-[clamp(36px,6vw,68px)] font-extrabold text-white leading-[1.1] transition-all duration-500"
               style={{
                 opacity: i === current ? 1 : 0,
-                transform: i === current ? 'translateY(0)' : 'translateY(20px)',
-                pointerEvents: i === current ? 'auto' : 'none',
+                transform: i === current ? "translateY(0)" : "translateY(20px)",
+                pointerEvents: i === current ? "auto" : "none",
               }}
             >
               {slide.headline.map((line, j) => (
-                <span key={j} className={j === slide.accent ? 'text-jds-orange' : ''}>
+                <span
+                  key={j}
+                  className={j === slide.accent ? "text-jds-orange" : ""}
+                >
                   {line}
                   {j < slide.headline.length - 1 && line && <br />}
                 </span>
@@ -103,8 +115,8 @@ export default function Hero() {
               className="absolute top-0 left-0 text-[17px] text-[#b0c4e8] leading-relaxed max-w-xl transition-all duration-500 delay-100"
               style={{
                 opacity: i === current ? 1 : 0,
-                transform: i === current ? 'translateY(0)' : 'translateY(12px)',
-                pointerEvents: i === current ? 'auto' : 'none',
+                transform: i === current ? "translateY(0)" : "translateY(12px)",
+                pointerEvents: i === current ? "auto" : "none",
               }}
             >
               {slide.sub}
@@ -169,7 +181,9 @@ export default function Hero() {
             onClick={() => setCurrent(i)}
             aria-label={`Go to slide ${i + 1}`}
             className={`w-2 h-2 rounded-full border-0 transition-all cursor-pointer p-0 ${
-              i === current ? 'bg-jds-orange scale-125' : 'bg-white/35 hover:bg-white/60'
+              i === current
+                ? "bg-jds-orange scale-125"
+                : "bg-white/35 hover:bg-white/60"
             }`}
           />
         ))}
@@ -182,7 +196,7 @@ export default function Hero() {
           className="h-full bg-jds-orange"
           style={{
             animation: `progressFill ${INTERVAL}ms linear forwards`,
-            animationPlayState: paused ? 'paused' : 'running',
+            animationPlayState: paused ? "paused" : "running",
           }}
         />
       </div>
