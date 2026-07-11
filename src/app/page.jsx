@@ -1,9 +1,8 @@
 import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import MissionVision from '@/components/MissionVision';
-import Values from '@/components/Values';
-import WhyUs from '@/components/WhyUs';
+import MissionVisionTeaser from '@/components/MissionVisionTeaser';
+import WhyUsTeaser from '@/components/WhyUsTeaser';
+import TeamTeaser from '@/components/TeamTeaser';
 import Fleet from '@/components/Fleet';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -14,11 +13,10 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <About />
-        <MissionVision />
-        <Values />
-        <WhyUs />
+        <MissionVisionTeaser />
         <Fleet />
+        <WhyUsTeaser />
+        <TeamTeaser />
         <Contact />
       </main>
       <Footer />

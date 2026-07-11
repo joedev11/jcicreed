@@ -85,7 +85,7 @@ export default function About() {
 
               {/* CTA */}
               <a
-                href="#contact"
+                href="/#contact"
                 className="block bg-jds-orange/90 hover:bg-jds-orange text-white text-center py-4 font-bold text-sm tracking-wide transition-colors no-underline"
               >
                 Send an Inquiry →

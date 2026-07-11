@@ -5,21 +5,21 @@ import { stats } from "@/data/content";
 
 const slides = [
   {
-    image: "/images/hero-trucks.jpg",
-    overlay: "rgba(17, 29, 62, 0.72)",
+    image: "/images/fleet-trucks-3.jpg",
+    overlay: "rgba(10, 20, 50, 0.60)",
     headline: ["Let Us Take the", "Weight Off", "Your Shoulders."],
     accent: 1,
     sub: "JCICREED Delivery Services is a premiere service-oriented transport company with a fleet of 30+ trucks.",
   },
   {
-    image: "/images/hero-trucks.jpg",
-    overlay: "rgba(15, 28, 56, 0.80)",
+    image: "/images/fleet-trucks.png",
+    overlay: "rgba(10, 22, 48, 0.68)",
     headline: ["Fast. Efficient.", "Hassle-Free", "Delivery."],
     accent: 0,
     sub: "From our humble beginning of 1 truck to 30+ units nationwide — we deliver on time, every time.",
   },
   {
-    image: "/images/hero-trucks.jpg",
+    image: "/images/hero-trucks.png",
     overlay: "rgba(17, 29, 62, 0.75)",
     headline: ["Your Mission", "Is Our Passion.", ""],
     accent: 1,
@@ -133,7 +133,7 @@ export default function Hero() {
             Get a Quote
           </a>
           <a
-            href="#about"
+            href="/about"
             className="border-2 border-white/30 text-white px-8 py-3.5 rounded font-semibold text-sm hover:border-white hover:bg-white/10 transition-all no-underline"
           >
             Learn More
