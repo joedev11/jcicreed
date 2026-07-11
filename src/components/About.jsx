@@ -13,16 +13,15 @@ export default function About() {
 
       {/* Main content */}
       <div className="px-[5%] py-[90px]">
-        <div className="w-10 h-1 bg-jds-orange rounded mb-4" />
-        <h2 className="text-[clamp(26px,4vw,40px)] font-extrabold text-navy mb-3">Company Profile</h2>
-        <p className="text-base text-gray-400 leading-relaxed max-w-xl mb-14">
-          Your mission is our passion — we are committed to delivering value.
-        </p>
-
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
 
           {/* Text — takes 3 cols */}
           <div className="lg:col-span-3 space-y-5">
+            <div className="w-10 h-1 bg-jds-orange rounded mb-4" />
+            <h2 className="text-[clamp(26px,4vw,40px)] font-extrabold text-navy mb-3">Company Profile</h2>
+            <p className="text-base text-gray-400 leading-relaxed mb-6">
+              Your mission is our passion — we are committed to delivering value.
+            </p>
             <p className="text-[15px] leading-[1.9] text-gray-600">
               JCICREED DELIVERY SERVICE was established 8 years ago as a premiere
               service-oriented transport company. We are a team of service-oriented,
