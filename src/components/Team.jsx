@@ -2,7 +2,7 @@ import { teamMembers } from '@/data/content';
 
 export default function Team() {
   return (
-    <section id="team" className="py-[90px] px-[5%] bg-jds-gray">
+    <section id="team" className="py-[90px] px-[5%] bg-white">
       <div className="w-10 h-1 bg-jds-orange rounded mb-4" />
       <h2 className="text-[clamp(26px,4vw,40px)] font-extrabold text-navy mb-3">Meet Our Team</h2>
       <p className="text-base text-gray-400 leading-relaxed max-w-xl mb-[60px]">

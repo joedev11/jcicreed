@@ -1,5 +1,6 @@
 import Nav from '@/components/Nav';
 import About from '@/components/About';
+import FounderQuote from '@/components/FounderQuote';
 import Team from '@/components/Team';
 import Footer from '@/components/Footer';
 
@@ -15,6 +16,7 @@ export default function AboutPage() {
       <Nav />
       <main className="pt-[68px]">
         <About />
+        <FounderQuote />
         <Team />
       </main>
       <Footer />

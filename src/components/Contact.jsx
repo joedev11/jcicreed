@@ -82,20 +82,18 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-[90px] px-[5%] bg-white">
-      <div className="w-10 h-1 bg-jds-orange rounded mb-4" />
-      <h2 className="text-[clamp(26px,4vw,40px)] font-extrabold text-navy mb-3">
-        Get in Touch
-      </h2>
-      <p className="text-base text-gray-500 leading-relaxed max-w-xl">
-        Ready to move your cargo? Contact us for a quote or any inquiries.
-      </p>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-[72px] items-start mt-[52px]">
+      <div className="max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-[72px] items-start">
         {/* Info */}
         <div>
-          <h3 className="text-xl font-bold text-navy mb-8">
-            Contact Information
-          </h3>
+          <div className="w-10 h-1 bg-jds-orange rounded mb-4" />
+          <h2 className="text-[clamp(26px,4vw,40px)] font-extrabold text-navy mb-3">
+            Get in Touch
+          </h2>
+          <p className="text-base text-gray-500 leading-relaxed mb-10">
+            Ready to move your cargo? Contact us for a quote or any inquiries.
+          </p>
+          <h3 className="text-[13px] font-bold uppercase tracking-[2px] text-jds-orange mb-6">Contact Information</h3>
           {infoItems.map((item) => (
             <div key={item.label} className="flex gap-4 items-start mb-7">
               <div className="shrink-0 w-11 h-11 bg-navy rounded flex items-center justify-center text-lg">
@@ -126,7 +124,7 @@ export default function Contact() {
 
         {/* Form */}
         <div className="bg-jds-gray rounded-lg p-10">
-          <h3 className="text-xl font-bold text-navy mb-6">Send a Message</h3>
+          <h3 className="text-[13px] font-bold uppercase tracking-[2px] text-jds-orange mb-6">Send a Message</h3>
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 gap-4 mb-5">
               <div>
@@ -222,6 +220,7 @@ export default function Contact() {
             )}
           </form>
         </div>
+      </div>
       </div>
     </section>
   );
