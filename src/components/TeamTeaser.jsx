@@ -1,5 +1,24 @@
 import { teamMembers } from "@/data/content";
 
+function Avatar({ member }) {
+  return (
+    <div className="flex flex-col items-center gap-2">
+      <div className="w-16 h-16 rounded-full overflow-hidden shadow-md ring-2 ring-white">
+        {member.photo ? (
+          <img src={member.photo} alt={member.name} className="w-full h-full object-cover" />
+        ) : (
+          <div className="w-full h-full bg-navy flex items-center justify-center">
+            <span className="text-white font-extrabold text-sm tracking-wide">{member.initials}</span>
+          </div>
+        )}
+      </div>
+      <p className="text-[11px] font-semibold text-navy text-center leading-tight max-w-[64px]">
+        {member.name.split(" ")[0]}
+      </p>
+    </div>
+  );
+}
+
 export default function TeamTeaser() {
   return (
     <section className="py-[80px] px-[5%] bg-jds-gray">
@@ -22,30 +41,19 @@ export default function TeamTeaser() {
           </a>
         </div>
 
-        {/* Avatar row */}
-        <div className="flex-1 flex gap-7 flex-wrap justify-end">
-          {teamMembers.map((member) => (
-            <div key={member.name} className="flex flex-col items-center gap-2">
-              <div className="w-16 h-16 rounded-full overflow-hidden shadow-md ring-2 ring-white">
-                {member.photo ? (
-                  <img
-                    src={member.photo}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-navy flex items-center justify-center">
-                    <span className="text-white font-extrabold text-sm tracking-wide">
-                      {member.initials}
-                    </span>
-                  </div>
-                )}
-              </div>
-              <p className="text-[11px] font-semibold text-navy text-center leading-tight max-w-[64px]">
-                {member.name.split(" ")[0]}
-              </p>
-            </div>
-          ))}
+        {/* Avatar grid */}
+        <div className="flex-1 flex flex-col items-center md:items-end gap-4">
+          {/* JC — top center */}
+          {(() => {
+            const jc = teamMembers.find((m) => m.name === 'JC Ibañez');
+            return jc ? <Avatar member={jc} /> : null;
+          })()}
+          {/* Rest */}
+          <div className="flex gap-7 flex-wrap justify-center md:justify-end">
+            {teamMembers.filter((m) => m.name && m.name !== 'JC Ibañez').map((member) => (
+              <Avatar key={member.name} member={member} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
