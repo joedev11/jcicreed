@@ -1,5 +1,6 @@
 import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
+import Clients from '@/components/Clients';
 import MissionVisionTeaser from '@/components/MissionVisionTeaser';
 import WhyUsTeaser from '@/components/WhyUsTeaser';
 import TeamTeaser from '@/components/TeamTeaser';
@@ -13,6 +14,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <Clients />
         <MissionVisionTeaser />
         <Fleet />
         <WhyUsTeaser />

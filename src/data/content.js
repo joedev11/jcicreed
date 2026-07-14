@@ -128,10 +128,11 @@ export const teamMembers = [
     photo: "/images/ryan_monticalbo_coordinator.jpg",
   },
   {
-    name: "",
+    name: "Melver Archide",
     role: "Maintenance Support",
     bio: "Keeps the fleet in peak condition through regular inspections, preventive maintenance, and prompt repairs.",
-    initials: "",
+    initials: "MA",
+    photo: "/images/melver_archide.jpg",
   },
 ];
 
