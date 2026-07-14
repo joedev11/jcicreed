@@ -13,7 +13,10 @@ export default function Nav() {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-navy-dark flex items-center justify-between px-[5%] h-[68px]">
-        <a href="/" className="flex items-center gap-3.5 no-underline">
+        <a href="/" className="flex items-center gap-3 no-underline">
+          <div className="bg-white rounded-lg p-1 flex items-center justify-center">
+            <img src="/images/jds_logo.jpg" alt="JCICREED Delivery Services" className="h-9 w-auto" />
+          </div>
           <div className="text-white font-bold text-[15px] tracking-wide leading-tight">
             JCICREED
             <span className="block font-light text-[11px] tracking-[2px] text-[#aabbdd]">

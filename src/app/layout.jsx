@@ -11,7 +11,7 @@ export const metadata = {
     title: "JCICREED Delivery Services",
     description:
       "Premiere service-oriented transport company with a fleet of 30+ trucks. Fast, efficient, and hassle-free delivery since 2018.",
-    images: [{ url: "/images/fleet-trucks.png" }],
+    images: [{ url: "/images/jds_logo.jpg" }],
   },
 };
 

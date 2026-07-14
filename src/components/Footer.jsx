@@ -2,6 +2,9 @@ export default function Footer() {
   return (
     <footer className="bg-navy-dark text-[#9ab0d4] px-[5%] py-10 flex justify-between items-center flex-wrap gap-4">
       <div className="flex items-center gap-3">
+        <div className="bg-white rounded-lg p-1.5 flex items-center justify-center">
+          <img src="/images/jds_logo.jpg" alt="JCICREED Delivery Services" className="h-10 w-auto" />
+        </div>
         <div className="text-white font-bold text-[13px]">
           JCICREED DELIVERY SERVICES
           <span className="block text-[10px] font-normal text-[#7a9ac0] tracking-[2px]">
