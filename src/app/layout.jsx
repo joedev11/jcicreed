@@ -1,12 +1,18 @@
-import { Inter } from 'next/font/google';
-import './globals.css';
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'JCICREED Delivery Services',
+  title: "JCICREED Delivery Services",
   description:
-    'Premiere service-oriented transport company with a fleet of 30+ trucks. Fast, efficient, and hassle-free delivery since 2018.',
+    "Premiere service-oriented transport company with a fleet of 30+ trucks. Fast, efficient, and hassle-free delivery since 2018.",
+  openGraph: {
+    title: "JCICREED Delivery Services",
+    description:
+      "Premiere service-oriented transport company with a fleet of 30+ trucks. Fast, efficient, and hassle-free delivery since 2018.",
+    images: [{ url: "/images/fleet-trucks.jpg" }],
+  },
 };
 
 export default function RootLayout({ children }) {
