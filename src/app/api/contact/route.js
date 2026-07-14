@@ -1,4 +1,7 @@
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -6,7 +9,7 @@ function isValidEmail(email) {
 
 export async function POST(req) {
   const body = await req.json();
-  const { name, email, message } = body;
+  const { name, email, phone, company, service, message } = body;
 
   if (!name?.trim() || !email?.trim() || !message?.trim()) {
     return NextResponse.json(
@@ -22,11 +25,34 @@ export async function POST(req) {
     );
   }
 
-  // In production: send email via nodemailer / save to DB
-  console.log(`[Contact] ${name} <${email}> — ${body.service ?? 'General'}`);
+  try {
+    await resend.emails.send({
+      from: 'JCICREED Website <noreply@jcicreeddeliveryservices.com>',
+      to: 'jcicreeddeliveryservices@gmail.com',
+      replyTo: email,
+      subject: `New Inquiry from ${name}${company ? ` — ${company}` : ''}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <table cellpadding="8" style="border-collapse:collapse;width:100%;max-width:500px">
+          <tr><td><strong>Name</strong></td><td>${name}</td></tr>
+          ${company ? `<tr><td><strong>Company</strong></td><td>${company}</td></tr>` : ''}
+          <tr><td><strong>Email</strong></td><td>${email}</td></tr>
+          ${phone ? `<tr><td><strong>Phone</strong></td><td>${phone}</td></tr>` : ''}
+          ${service ? `<tr><td><strong>Service</strong></td><td>${service}</td></tr>` : ''}
+          <tr><td><strong>Message</strong></td><td style="white-space:pre-wrap">${message}</td></tr>
+        </table>
+      `,
+    });
 
-  return NextResponse.json({
-    success: true,
-    message: 'Thank you! We will get back to you shortly.',
-  });
+    return NextResponse.json({
+      success: true,
+      message: 'Thank you! We will get back to you shortly.',
+    });
+  } catch (error) {
+    console.error('[Contact] Email send failed:', error);
+    return NextResponse.json(
+      { success: false, message: 'Failed to send message. Please try again.' },
+      { status: 500 },
+    );
+  }
 }
