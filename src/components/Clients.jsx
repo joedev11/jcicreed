@@ -17,7 +17,7 @@ export default function Clients() {
         {clients.map((client) => (
           <div
             key={client.name}
-            className="h-14 w-32 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300"
+            className="h-14 w-32 flex items-center justify-center"
           >
             <img
               src={client.logo}
