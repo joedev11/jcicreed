@@ -44,7 +44,7 @@ export async function POST(req) {
 
   try {
     await resend.emails.send({
-      from: "JCICREED Website <noreply@jcicreeddeliveryservices.com>",
+      from: "JCICREED Website <inquiries@jcicreeddeliveryservices.com>",
       to: "jcicreedeliveryservices@gmail.com",
       replyTo: email,
       subject: `New Inquiry from ${name}${company ? ` — ${company}` : ""}`,
