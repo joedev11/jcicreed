@@ -48,8 +48,14 @@ export async function POST(req) {
       to: "jcicreedeliveryservices@gmail.com",
       replyTo: email,
       subject: `New Inquiry from ${name}${company ? ` — ${company}` : ""}`,
-      html: `
-        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background-color:#ffffff !important;padding:32px 16px;" bgcolor="#ffffff">
+      html: `<!DOCTYPE html>
+        <html lang="en" style="color-scheme:light;">
+        <head>
+          <meta name="color-scheme" content="light" />
+          <meta name="supported-color-schemes" content="light" />
+        </head>
+        <body style="margin:0;padding:0;background-color:#ffffff;" bgcolor="#ffffff">
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background-color:#ffffff;padding:32px 16px;" bgcolor="#ffffff">
           <div style="background-color:#111d3e !important;border-radius:12px 12px 0 0;padding:28px 32px;text-align:center;">
             <img src="https://jcicreeddeliveryservices.com/images/jds_logo.jpg" alt="JCICREED Delivery Services" style="height:64px;width:auto;border-radius:8px;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;" />
             <p style="color:#ffffff !important;font-size:20px;font-weight:900;margin:0;letter-spacing:2px;">JCICREED</p>
@@ -68,10 +74,11 @@ export async function POST(req) {
               <a href="mailto:${email}" style="background-color:#e8621a !important;color:#ffffff !important;text-decoration:none;padding:12px 28px;border-radius:6px;font-weight:700;font-size:13px;letter-spacing:1px;">Reply to ${name}</a>
             </div>
           </div>
-          <p style="text-align:center;color:#aaaaaa !important;font-size:11px;margin-top:20px;">
+          <p style="text-align:center;color:#aaaaaa;font-size:11px;margin-top:20px;">
             JCICREED Delivery Services &bull; jcicreeddeliveryservices.com
           </p>
         </div>
+        </body></html>
       `,
     });
 
