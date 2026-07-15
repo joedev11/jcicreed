@@ -25,6 +25,23 @@ export async function POST(req) {
     );
   }
 
+  const fields = [
+    { label: "Name", value: name },
+    company ? { label: "Company", value: company } : null,
+    { label: "Email", value: email },
+    phone ? { label: "Phone", value: phone } : null,
+    service ? { label: "Service", value: service } : null,
+  ]
+    .filter(Boolean)
+    .map(
+      (item) => `
+      <div style="margin-bottom:16px;">
+        <p style="color:#e8621a;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin:0 0 4px;">${item.label}</p>
+        <p style="color:#111d3e;font-size:15px;font-weight:600;margin:0;">${item.value}</p>
+      </div>`,
+    )
+    .join("");
+
   try {
     await resend.emails.send({
       from: "JCICREED Website <noreply@jcicreeddeliveryservices.com>",
@@ -32,15 +49,29 @@ export async function POST(req) {
       replyTo: email,
       subject: `New Inquiry from ${name}${company ? ` — ${company}` : ""}`,
       html: `
-        <h2>New Contact Form Submission</h2>
-        <table cellpadding="8" style="border-collapse:collapse;width:100%;max-width:500px">
-          <tr><td><strong>Name</strong></td><td>${name}</td></tr>
-          ${company ? `<tr><td><strong>Company</strong></td><td>${company}</td></tr>` : ""}
-          <tr><td><strong>Email</strong></td><td>${email}</td></tr>
-          ${phone ? `<tr><td><strong>Phone</strong></td><td>${phone}</td></tr>` : ""}
-          ${service ? `<tr><td><strong>Service</strong></td><td>${service}</td></tr>` : ""}
-          <tr><td><strong>Message</strong></td><td style="white-space:pre-wrap">${message}</td></tr>
-        </table>
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f4f6fb;padding:32px 16px;">
+          <div style="background:#111d3e;border-radius:12px 12px 0 0;padding:28px 32px;text-align:center;">
+            <img src="https://jcicreeddeliveryservices.com/images/jds_logo.jpg" alt="JCICREED Delivery Services" style="height:64px;width:auto;border-radius:8px;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;" />
+            <p style="color:#ffffff;font-size:20px;font-weight:900;margin:0;letter-spacing:2px;">JCICREED</p>
+            <p style="color:#aabbdd;font-size:11px;margin:4px 0 0;letter-spacing:3px;">DELIVERY SERVICES</p>
+          </div>
+          <div style="background:#e8621a;height:4px;"></div>
+          <div style="background:#ffffff;border-radius:0 0 12px 12px;padding:32px;">
+            <h2 style="color:#111d3e;font-size:20px;margin:0 0 6px;">New Inquiry Received</h2>
+            <p style="color:#888;font-size:13px;margin:0 0 24px;">Someone submitted the contact form on your website.</p>
+            ${fields}
+            <div style="margin-top:24px;background:#f4f6fb;border-left:4px solid #e8621a;border-radius:4px;padding:16px 20px;">
+              <p style="color:#e8621a;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin:0 0 8px;">Message</p>
+              <p style="color:#333;font-size:14px;line-height:1.7;margin:0;white-space:pre-wrap;">${message}</p>
+            </div>
+            <div style="margin-top:28px;text-align:center;">
+              <a href="mailto:${email}" style="background:#e8621a;color:#fff;text-decoration:none;padding:12px 28px;border-radius:6px;font-weight:700;font-size:13px;letter-spacing:1px;">Reply to ${name}</a>
+            </div>
+          </div>
+          <p style="text-align:center;color:#aaa;font-size:11px;margin-top:20px;">
+            JCICREED Delivery Services &bull; jcicreeddeliveryservices.com
+          </p>
+        </div>
       `,
     });
 

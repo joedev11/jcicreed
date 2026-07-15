@@ -20,14 +20,6 @@ const infoItems = [
   { icon: "🕐", label: "BUSINESS HOURS", value: contactInfo.hours },
 ];
 
-const serviceOptions = [
-  "Closed Van Delivery",
-  "Refrigerated Transport",
-  "Freight Forwarding",
-  "Nationwide Trucking",
-  "Other",
-];
-
 const initialForm = {
   name: "",
   company: "",
@@ -83,144 +75,148 @@ export default function Contact() {
   return (
     <section id="contact" className="py-[90px] px-[5%] bg-white">
       <div className="max-w-5xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-[72px] items-start">
-        {/* Info */}
-        <div>
-          <div className="w-10 h-1 bg-jds-orange rounded mb-4" />
-          <h2 className="text-[clamp(26px,4vw,40px)] font-extrabold text-navy mb-3">
-            Get in Touch
-          </h2>
-          <p className="text-base text-gray-500 leading-relaxed mb-10">
-            Ready to move your cargo? Contact us for a quote or any inquiries.
-          </p>
-          <h3 className="text-[13px] font-bold uppercase tracking-[2px] text-jds-orange mb-6">Contact Information</h3>
-          {infoItems.map((item) => (
-            <div key={item.label} className="flex gap-4 items-start mb-7">
-              <div className="shrink-0 w-11 h-11 bg-navy rounded flex items-center justify-center text-lg">
-                {item.icon}
-              </div>
-              <div>
-                <strong className="block text-[13px] text-gray-400 tracking-widest mb-1">
-                  {item.label}
-                </strong>
-                {item.href ? (
-                  <p className="text-[15px] font-semibold text-navy leading-snug">
-                    <a
-                      href={item.href}
-                      className="text-navy hover:text-jds-orange transition-colors no-underline"
-                    >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[72px] items-start">
+          {/* Info */}
+          <div>
+            <div className="w-10 h-1 bg-jds-orange rounded mb-4" />
+            <h2 className="text-[clamp(26px,4vw,40px)] font-extrabold text-navy mb-3">
+              Get in Touch
+            </h2>
+            <p className="text-base text-gray-500 leading-relaxed mb-10">
+              Ready to move your cargo? Contact us for a quote or any inquiries.
+            </p>
+            <h3 className="text-[13px] font-bold uppercase tracking-[2px] text-jds-orange mb-6">
+              Contact Information
+            </h3>
+            {infoItems.map((item) => (
+              <div key={item.label} className="flex gap-4 items-start mb-7">
+                <div className="shrink-0 w-11 h-11 bg-navy rounded flex items-center justify-center text-lg">
+                  {item.icon}
+                </div>
+                <div>
+                  <strong className="block text-[13px] text-gray-400 tracking-widest mb-1">
+                    {item.label}
+                  </strong>
+                  {item.href ? (
+                    <p className="text-[15px] font-semibold text-navy leading-snug">
+                      <a
+                        href={item.href}
+                        className="text-navy hover:text-jds-orange transition-colors no-underline"
+                      >
+                        {item.value}
+                      </a>
+                    </p>
+                  ) : (
+                    <p className="text-[15px] font-semibold text-navy leading-snug">
                       {item.value}
-                    </a>
-                  </p>
-                ) : (
-                  <p className="text-[15px] font-semibold text-navy leading-snug">
-                    {item.value}
-                  </p>
-                )}
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Form */}
-        <div className="bg-jds-gray rounded-lg p-10">
-          <h3 className="text-[13px] font-bold uppercase tracking-[2px] text-jds-orange mb-6">Send a Message</h3>
-          <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-2 gap-4 mb-5">
-              <div>
+          {/* Form */}
+          <div className="bg-jds-gray rounded-lg p-10">
+            <h3 className="text-[13px] font-bold uppercase tracking-[2px] text-jds-orange mb-6">
+              Send a Message
+            </h3>
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-2 gap-4 mb-5">
+                <div>
+                  <label className="block text-[13px] font-semibold text-navy mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="Juan dela Cruz"
+                    required
+                    value={form.name}
+                    onChange={handleChange}
+                    className={inputClass}
+                  />
+                </div>
+                <div>
+                  <label className="block text-[13px] font-semibold text-navy mb-2">
+                    Company
+                  </label>
+                  <input
+                    name="company"
+                    type="text"
+                    placeholder="Your Company"
+                    value={form.company}
+                    onChange={handleChange}
+                    className={inputClass}
+                  />
+                </div>
+              </div>
+
+              <div className="mb-5">
                 <label className="block text-[13px] font-semibold text-navy mb-2">
-                  Full Name *
+                  Email Address *
                 </label>
                 <input
-                  name="name"
-                  type="text"
-                  placeholder="Juan dela Cruz"
+                  name="email"
+                  type="email"
+                  placeholder="you@company.com"
                   required
-                  value={form.name}
+                  value={form.email}
                   onChange={handleChange}
                   className={inputClass}
                 />
               </div>
-              <div>
+
+              <div className="mb-5">
                 <label className="block text-[13px] font-semibold text-navy mb-2">
-                  Company
+                  Phone Number
                 </label>
                 <input
-                  name="company"
-                  type="text"
-                  placeholder="Your Company"
-                  value={form.company}
+                  name="phone"
+                  type="tel"
+                  placeholder="+63 9XX XXX XXXX"
+                  value={form.phone}
                   onChange={handleChange}
                   className={inputClass}
                 />
               </div>
-            </div>
 
-            <div className="mb-5">
-              <label className="block text-[13px] font-semibold text-navy mb-2">
-                Email Address *
-              </label>
-              <input
-                name="email"
-                type="email"
-                placeholder="you@company.com"
-                required
-                value={form.email}
-                onChange={handleChange}
-                className={inputClass}
-              />
-            </div>
-
-            <div className="mb-5">
-              <label className="block text-[13px] font-semibold text-navy mb-2">
-                Phone Number
-              </label>
-              <input
-                name="phone"
-                type="tel"
-                placeholder="+63 9XX XXX XXXX"
-                value={form.phone}
-                onChange={handleChange}
-                className={inputClass}
-              />
-            </div>
-
-            <div className="mb-5">
-              <label className="block text-[13px] font-semibold text-navy mb-2">
-                Message *
-              </label>
-              <textarea
-                name="message"
-                placeholder="Tell us about your delivery needs..."
-                required
-                value={form.message}
-                onChange={handleChange}
-                className={`${inputClass} resize-y min-h-[120px]`}
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-navy text-white py-3.5 rounded font-bold text-[15px] tracking-wide hover:bg-jds-orange transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              {loading ? "Sending..." : "Send Inquiry"}
-            </button>
-
-            {status && (
-              <div
-                className={`mt-3 px-4 py-3 rounded text-sm font-semibold ${
-                  status.type === "success"
-                    ? "bg-green-50 text-green-800"
-                    : "bg-red-50 text-red-800"
-                }`}
-              >
-                {status.message}
+              <div className="mb-5">
+                <label className="block text-[13px] font-semibold text-navy mb-2">
+                  Message *
+                </label>
+                <textarea
+                  name="message"
+                  placeholder="Tell us about your delivery needs..."
+                  required
+                  value={form.message}
+                  onChange={handleChange}
+                  className={`${inputClass} resize-y min-h-[120px]`}
+                />
               </div>
-            )}
-          </form>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-navy text-white py-3.5 rounded font-bold text-[15px] tracking-wide hover:bg-jds-orange transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {loading ? "Sending..." : "Send Inquiry"}
+              </button>
+
+              {status && (
+                <div
+                  className={`mt-3 px-4 py-3 rounded text-sm font-semibold ${
+                    status.type === "success"
+                      ? "bg-green-50 text-green-800"
+                      : "bg-red-50 text-red-800"
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
+            </form>
+          </div>
         </div>
-      </div>
       </div>
     </section>
   );
