@@ -49,26 +49,26 @@ export async function POST(req) {
       replyTo: email,
       subject: `New Inquiry from ${name}${company ? ` — ${company}` : ""}`,
       html: `
-        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f4f6fb;padding:32px 16px;">
-          <div style="background:#111d3e;border-radius:12px 12px 0 0;padding:28px 32px;text-align:center;">
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background-color:#ffffff !important;padding:32px 16px;" bgcolor="#ffffff">
+          <div style="background-color:#111d3e !important;border-radius:12px 12px 0 0;padding:28px 32px;text-align:center;">
             <img src="https://jcicreeddeliveryservices.com/images/jds_logo.jpg" alt="JCICREED Delivery Services" style="height:64px;width:auto;border-radius:8px;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;" />
-            <p style="color:#ffffff;font-size:20px;font-weight:900;margin:0;letter-spacing:2px;">JCICREED</p>
-            <p style="color:#aabbdd;font-size:11px;margin:4px 0 0;letter-spacing:3px;">DELIVERY SERVICES</p>
+            <p style="color:#ffffff !important;font-size:20px;font-weight:900;margin:0;letter-spacing:2px;">JCICREED</p>
+            <p style="color:#aabbdd !important;font-size:11px;margin:4px 0 0;letter-spacing:3px;">DELIVERY SERVICES</p>
           </div>
-          <div style="background:#e8621a;height:4px;"></div>
-          <div style="background:#ffffff;border-radius:0 0 12px 12px;padding:32px;">
-            <h2 style="color:#111d3e;font-size:20px;margin:0 0 6px;">New Inquiry Received</h2>
-            <p style="color:#888;font-size:13px;margin:0 0 24px;">Someone submitted the contact form on your website.</p>
+          <div style="background-color:#e8621a !important;height:4px;"></div>
+          <div style="background-color:#ffffff !important;border-radius:0 0 12px 12px;padding:32px;" bgcolor="#ffffff">
+            <h2 style="color:#111d3e !important;font-size:20px;margin:0 0 6px;">New Inquiry Received</h2>
+            <p style="color:#666666 !important;font-size:13px;margin:0 0 24px;">Someone submitted the contact form on your website.</p>
             ${fields}
-            <div style="margin-top:24px;background:#f4f6fb;border-left:4px solid #e8621a;border-radius:4px;padding:16px 20px;">
-              <p style="color:#e8621a;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin:0 0 8px;">Message</p>
-              <p style="color:#333;font-size:14px;line-height:1.7;margin:0;white-space:pre-wrap;">${message}</p>
+            <div style="margin-top:24px;background-color:#f4f6fb !important;border-left:4px solid #e8621a;border-radius:4px;padding:16px 20px;" bgcolor="#f4f6fb">
+              <p style="color:#e8621a !important;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin:0 0 8px;">Message</p>
+              <p style="color:#333333 !important;font-size:14px;line-height:1.7;margin:0;white-space:pre-wrap;">${message}</p>
             </div>
             <div style="margin-top:28px;text-align:center;">
-              <a href="mailto:${email}" style="background:#e8621a;color:#fff;text-decoration:none;padding:12px 28px;border-radius:6px;font-weight:700;font-size:13px;letter-spacing:1px;">Reply to ${name}</a>
+              <a href="mailto:${email}" style="background-color:#e8621a !important;color:#ffffff !important;text-decoration:none;padding:12px 28px;border-radius:6px;font-weight:700;font-size:13px;letter-spacing:1px;">Reply to ${name}</a>
             </div>
           </div>
-          <p style="text-align:center;color:#aaa;font-size:11px;margin-top:20px;">
+          <p style="text-align:center;color:#aaaaaa !important;font-size:11px;margin-top:20px;">
             JCICREED Delivery Services &bull; jcicreeddeliveryservices.com
           </p>
         </div>
